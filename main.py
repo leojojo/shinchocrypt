@@ -58,6 +58,24 @@ def get_files(extention, directory):
     return file_list
 
 
+def encrypt_file(file, public_key):
+    with open(file, mode='r+') as f:
+        plain_text = f.read()
+        f.seek(0)
+        f.truncate()
+        encrypted_text = encrypt(plain_text, public_key)
+        f.write(encrypted_text)
+
+
+def decrypt_file(file, private_key):
+    with open(file, mode='r+') as f:
+        crypt_text = f.read()
+        f.seek(0)
+        f.truncate()
+        decrypted_text = decrypt(crypt_text, private_key)
+        f.write(decrypted_text)
+
+
 def print_result(file, public_key, private_key):
     with open(file) as f:
         plain_text = f.read()
@@ -84,6 +102,8 @@ def main():
     files = get_files('.md', directory)
     for file in files:
         print_result(file, public_key, private_key)
+        encrypt_file(file, public_key)
+        decrypt_file(file, private_key)
 
 
 if __name__ == '__main__':
