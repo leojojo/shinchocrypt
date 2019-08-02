@@ -1,3 +1,4 @@
 # shinchocrypt
 
-reference: [Python で񊍲񊍲񊍲開鍵暗号アルゴリズム RSA を実装してみる](https://qiita.com/QUANON/items/e7b181dd08f2f0b4fdbe)
+## references
+- [RSAを実装する](https://qiita.com/moajo/items/0ea9043f9688b05fa39a)
